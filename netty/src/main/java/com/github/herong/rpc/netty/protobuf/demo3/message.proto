@@ -1,0 +1,27 @@
+package example;
+
+option java_package = "com.github.herong.rpc.netty.protobuf.demo3";
+option java_outer_classname = "Commands";
+
+message Command {
+    enum CommandType {
+        HEARTBEAT = 1;
+        LOGIN_REQ = 2;
+        LOGIN_RESP = 3;
+        IQ_REQ = 4;
+        IQ_RESP = 5;
+        MESSAGE = 6;
+        MESSAGE_ACK = 7;
+        PRESENCE = 8;
+    }
+
+    extensions 100 to max;
+    required CommandType type = 1;
+    optional int32 id = 2;
+}
+
+
+
+
+
+

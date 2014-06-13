@@ -1,0 +1,47 @@
+package example;
+
+option java_package = "com.github.herong.rpc.netty.protobuf.demo2";
+option java_outer_classname = "Message";
+
+//用户基本信息
+message UserBaseInfo {
+	required int64 		id = 1;
+	required string 	loginName = 2;
+	optional string 	phone = 3;
+	optional string 	email = 4;
+	required string 	nickName = 5;
+	optional bool 		userStatus = 6;
+	optional bool 		isShop = 7;
+	optional string 	regTime = 8;
+}
+
+//用 户扩展信息
+message UserExtInfo {
+    optional int64 id = 1;
+  	optional string name =2 ;
+  	optional string sex =3;
+  	optional string birthday =4;
+}
+
+
+//信息对象
+message M0001 {
+	required UserBaseInfo userBaseInfo = 1;
+}
+
+message M0002 {
+	required UserExtInfo userExtInfo = 1;
+}
+
+enum MsgType {
+	T0001 = 1;
+	T0002 = 2;
+}
+
+message DTO {
+	required MsgType type = 1;
+	required string flag = 2;
+	optional string msg = 3;
+	optional M0001 m001 = 4;
+	optional M0002 m002 = 5;
+}

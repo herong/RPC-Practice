@@ -1,0 +1,27 @@
+package example;
+
+import "message.proto";
+
+option java_package = "com.github.herong.rpc.netty.protobuf.demo3";
+option java_outer_classname = "Request";
+
+message LoginRequest {
+    extend Command {
+        required LoginRequest cmd = 102;
+    }
+    optional string token = 1;
+    optional string username = 2;
+    optional string password = 3;
+}
+
+
+message Heartbeat {
+    extend Command {
+        required Heartbeat cmd = 101;
+    }
+}
+
+
+
+
+
